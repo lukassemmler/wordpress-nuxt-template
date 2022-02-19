@@ -1,0 +1,23 @@
+{
+  "name": "test/docker-wordpress-test",
+  "description": "Headless Wordpress test with Docker",
+  "repositories":[
+    {
+      "type":"composer",
+      "url":"https://wpackagist.org",
+      "only": [
+        "wpackagist-plugin/*",
+        "wpackagist-theme/*"
+      ]
+    }
+  ],
+  "require": {
+    "wpackagist-plugin/advanced-custom-fields":"*",
+    "wpackagist-theme/hueman":"*"
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true
+    }
+  }
+}
