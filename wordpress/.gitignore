@@ -1,3 +1,6 @@
+# Source: https://github.com/github/gitignore/blob/main/Composer.gitignore
 composer.phar
 /vendor/
+
+# Gets added as dependencies via wpackagist when running 'docker install'
 /wp-content/
