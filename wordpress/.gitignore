@@ -2,5 +2,5 @@
 composer.phar
 /vendor/
 
-# Gets added as dependencies via wpackagist when running 'docker install'
+# Gets added as dependencies via wpackagist when running 'composer install'
 /wp-content/
