@@ -1,4 +1,4 @@
-# Source: https://www.hostinger.com/tutorials/run-docker-wordpress, by Domantas G. 2021-10-28
+# Based on https://www.hostinger.com/tutorials/run-docker-wordpress, by Domantas G. 2021-10-28
 version: '3.8'
 services:
   db:
@@ -14,7 +14,12 @@ services:
   wordpress:
     depends_on:
       - db
-    image: wordpress:latest
+    # Im not sure why, but apparently it works now. 
+    # Before 'docker-compose build' failed, maybe at the 'context: ./' part.
+    build: ./wordpress/
+    #build:
+      #context: ./
+      #dockerfile: ./wordpress/Dockerfile
     ports:
       - "8000:80"
     restart: always
@@ -23,5 +28,8 @@ services:
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - wordpress_data:/var/www/html
 volumes:
   db_data: {}
+  wordpress_data: {}
